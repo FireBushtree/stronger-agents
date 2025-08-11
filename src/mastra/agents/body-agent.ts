@@ -1,7 +1,5 @@
 import { openai } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
-import { Memory } from '@mastra/memory';
-import { LibSQLStore } from '@mastra/libsql';
 import { calorieCalculatorTool, dietPlanTool, workoutPlanTool } from '../tools/fitness-tool';
 
 export const bodyAgent = new Agent({
@@ -39,9 +37,5 @@ export const bodyAgent = new Agent({
     dietPlanTool,
     workoutPlanTool
   },
-  memory: new Memory({
-    storage: new LibSQLStore({
-      url: 'file:../mastra.db', // path is relative to the .mastra/output directory
-    }),
-  }),
+  // Remove memory/storage for Cloudflare Workers compatibility
 });

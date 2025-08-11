@@ -1,0 +1,30 @@
+name = "stronger-agents"
+main = "src/worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "yarn install && yarn build"
+
+[env.production]
+name = "stronger-agents"
+vars = { NODE_ENV = "production" }
+# 在 Cloudflare Dashboard 中设置敏感环境变量
+# OPENAI_API_KEY = "your-openai-api-key"
+
+[env.development]
+name = "stronger-agents-dev"
+vars = { NODE_ENV = "development" }
+# 在 Cloudflare Dashboard 中设置敏感环境变量
+# OPENAI_API_KEY = "your-openai-api-key"
+
+# 如果需要使用 D1 数据库，取消注释以下配置
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "stronger-agents-db"
+# database_id = "your-database-id"
+
+# 如果需要使用 KV 存储，取消注释以下配置
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-namespace-id"
