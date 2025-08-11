@@ -7,3 +7,4 @@ dist
 *.db
 *.db-*
 .wrangler
+yarn-offline-mirror
